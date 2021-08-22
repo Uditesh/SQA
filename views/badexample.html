@@ -77,7 +77,7 @@
             </ul>
             <p><strong>Really Bad Exampl!</strong></p>
             <p>This demo shows how bad security can cost user their privacy and much more!</p>
-            <form action="./formHandle.js" method="GET">
+            <form action class method="GET">
                 <label for="name">Name : </label>
                 <input type="text" id="name">
                 <label for="pwd">Password : </label>
@@ -107,7 +107,7 @@
                         window.location = '/welcomeAdmin.html';
                         console.log(" Logging in as am admin");
                     } else {
-                        window.location = '/site/user.html';
+                        window.location = 'user.html';
                         console.log(" Logging in as normal user!");
                     }
                 }
