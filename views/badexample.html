@@ -75,10 +75,47 @@
                     unless there is
                     something in writing that tells me what you have done and what the outcome was.</li>
             </ul>
+            <p><strong>Really Bad Exampl!</strong></p>
+            <p>This demo shows how bad security can cost user their privacy and much more!</p>
+            <form action="./formHandle.js" method="GET">
+                <label for="name">Name : </label>
+                <input type="text" id="name">
+                <label for="pwd">Password : </label>
+                <input type="password" id="pwd">
+                <button type="submit" id="submit" class="submit">Submit</button>
+            </form>
         </div>
 
+        <script>
+            const sub = document.getElementById("submit");
+
+            const callBack = (e) => {
+
+                e.preventDefault();
+                var name = document.getElementById("name");
+                var pwd = document.getElementById("pwd");
+
+                localStorage.setItem('username', name.value);
+                localStorage.setItem('pswd', pwd.value);
+
+                const passwordCheck = pwd.reportValidity();
+
+                if (passwordCheck) {
+
+                    if (username.value === 'ud' && password.value === 'ud') {
+                        document.cookie = "admin=true; SameSite=None; Secure";
+                        window.location = '/welcomeAdmin.html';
+                        console.log(" Logging in as am admin");
+                    } else {
+                        window.location = '/site/user.html';
+                        console.log(" Logging in as normal user!");
+                    }
+                }
+            };
+
+            sub.addEventListener("click", callBack, false);
+        </script>
     </div>
-    <script type="module" src="/main.js"></script>
 </body>
 
 </html>
